@@ -42,7 +42,10 @@
                 <option value="no">No</option>
             </select>
         </div>
-        <input type="submit" value="Calculate">
+        <button type="submit">
+            <span class="text">Calculate</span>
+            <div class="spinner hide" role="status" aria-label="Loading"></div>
+        </button>
     </form>
 </div>
 <div class="column">
@@ -51,9 +54,7 @@
 <div style="clear:both"></div>
 
 <script>
-document.querySelector('.calculator').addEventListener('submit', function(event) {
-    event.preventDefault();
-    
+function calculatePaymentPlan() {
     const principal = parseFloat(document.getElementById('principal').value);
     const interestRate = parseFloat(document.getElementById('interestRate').value) / 100;
     const payments = parseInt(document.getElementById('payments').value);
@@ -103,6 +104,18 @@ document.querySelector('.calculator').addEventListener('submit', function(event)
     var netCostElement = document.createElement('p');
     netCostElement.innerHTML = 'Net Profit/Loss of Payment Plan<br />$' + (principal + totalPrincipalInterest - totalPaymentPlanCost).toFixed(2);
     calculatorResultsElement.appendChild(netCostElement);
+}
+document.querySelector('.calculator').addEventListener('submit', function(event) {
+    event.preventDefault();
+    document.querySelector('.calculator button[type="submit"] .text').classList.add('hide');
+    document.querySelector('.calculator button[type="submit"] .spinner').classList.remove('hide');
+    setTimeout(function() {
+        calculatePaymentPlan();
+        document.querySelector('.calculator button[type="submit"] .text').classList.remove('hide');
+        document.querySelector('.calculator button[type="submit"] .spinner').classList.add('hide');
+    }, 500);
+    
+    
 });
 </script>
 

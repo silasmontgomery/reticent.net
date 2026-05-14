@@ -1,5 +1,7 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Quicksand', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
     background-color: #333;
     color: #bebebe;
     margin: 0;
@@ -25,12 +27,12 @@ a:active, a:hover {
 }
 .title {
     font-size: 1.5em;
-    font-weight: normal;
+    font-weight: 500;
     margin: 0 0 5px 0;
 }
 h1, h2 {
     font-size: 1.25em;
-    font-weight: normal;
+    font-weight: 500;
     margin: 0 0 20px 0;
     color: #e1e1e1;
 }
@@ -53,9 +55,15 @@ h2 {
     margin: 0;
     padding: 0;
 }
+.page-section {
+    margin-bottom: 40px;
+}
 .column {
     float: left;
     padding: 0 40px 0 0;
+}
+.clear {
+    clear: both;
 }
 .calculator {
     max-width: 375px;
@@ -80,7 +88,7 @@ h2 {
     font-size: 0.8em;
     color: #9e9e9e;
 }
-form input[type="submit"] {
+form button[type="submit"] {
     background-color: #4caf50;
     color: white;
     padding: 10px 20px;
@@ -88,8 +96,24 @@ form input[type="submit"] {
     border-radius: 4px;
     cursor: pointer;
 }
-form input[type="submit"]:hover {
+form button[type="submit"]:hover {
     background-color: #45a049;
+}
+form button[type="submit"] .spinner {
+    /* Size and shape */
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+
+    /* The track (light gray) and the moving indicator (blue) */
+    border: 4px solid #358a38;
+    border-top-color: #ffffff;
+
+    /* Smooth infinite rotation */
+    animation: spin 1s linear infinite;
+}
+ul.no-style {
+    list-style-type: none;
 }
 .nav-menu {
     margin: 5px 0;
@@ -103,4 +127,27 @@ form input[type="submit"]:hover {
 }
 #main {
     padding: 20px;
+}
+.loading-spinner {
+  /* Size and shape */
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  
+  /* The track (light gray) and the moving indicator (blue) */
+  border: 8px solid #6f7787;
+  border-top-color: #4b4e55;
+  
+  /* Smooth infinite rotation */
+  animation: spin 1s linear infinite;
+}
+
+/* Keyframe definition to rotate the element 360 degrees */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.hide {
+    display: none;
 }
