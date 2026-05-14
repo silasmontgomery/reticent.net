@@ -1,0 +1,42 @@
+<?php 
+require_once __DIR__ . '/../auto_loader.php';
+if (!isset($title)) {
+    $title = 'Shirking in the shadows';
+}
+if (!isset($body)) {
+    $body = '';
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo $title; ?></title>
+    <style>
+        <?php include __DIR__ . '/style.css'; ?>
+    </style>
+</head>
+<body>
+    <div class="center-content">
+        <div>
+            <div class="title">Reticent.net</div>
+            <p class="subtitle"><i><?php echo $title; ?></i></p>
+        </div>
+    </div>
+    <div class="divider"></div>
+    <?php if($page !== 'home.php'): ?>
+        <?php include __DIR__ . '/../components/nav-menu.php'; ?>
+    <?php endif; ?>
+    <div class="center-content" id="main">
+        <?php echo $body; ?>
+    </div>
+    <div class="divider"></div>
+    <?php if($page !== 'home.php'): ?>
+        <?php include __DIR__ . '/../components/nav-menu.php'; ?>
+    <?php endif; ?>
+    <div class="center-content">
+        <p class="footer">Copyright &copy; 2026 Silas Montgomery. All rights reserved.</p>
+    </div>
+</body>
+</html>
