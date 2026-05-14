@@ -50,7 +50,7 @@ $body = <<<HTML
 
 <div class="page-section">
     <form method="post" class="contact-form">
-        <h2>Contact Me</h2>
+        <h2><span class="material-symbols-outlined">mail</span> Contact Me</h2>
         <p>If you have any questions, suggestions, or just want to say hi, feel free to reach out using the form below!</p>
         <div class="form-section">
             <label for="name">Name:</label>
