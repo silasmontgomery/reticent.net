@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shirking in the shadows</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="title">Reticent.net</div>
+    <p class="subtitle"><i>Calculating in the shadows</i></p>
+    <div class="divider"></div>
+    <div class="nav-menu"><a href="/">Back to Home</a></div>
+    <form class="calculator">
+        <h2>Payment Plan vs. Lump Sum</h2>
+        <div class="form-section">
+            <label for="principal">Principal Amount ($):</label>
+            <input type="number" id="principal" name="principal" value="28000" />
+            <div class="note">This is the lump sum you would pay.</div>
+        </div>
+        <div class="form-section">
+            <label for="interestRate">Estimated APY (%):</label>
+            <input type="number" id="interestRate" name="interestRate" step="0.1" value="3.1" />
+            <div class="note">This is the estimated annual percentage yield if you kept the principal invested.</div>
+        </div>
+        <div class="form-section">
+            <label for="payments">Number of Payments:</label>
+            <input type="number" id="payments" name="payments" value="4" />
+            <div class="note">This is the total number of payments you would make.</div>
+        </div>
+        <div class="form-section">
+            <label for="months">Payments made every # months:</label>
+            <input type="number" id="months" name="months" value="3" />
+            <div class="note">This is the interval in months between each payment.</div>
+        </div>
+        <div class="form-section">
+            <label for="planFee">Payment Plan Fee ($):</label>
+            <input type="number" id="planFee" name="planFee" value="360" />
+            <div class="note">This is the additional amount you would pay for the payment plan.</div>
+        </div>
+        <div class="form-section">
+            <label for="compoundInterest">Compound Interest Monthly:</label>
+            <input type="checkbox" id="compoundInterest" name="compoundInterest" checked />
+        </div>
+        <input type="submit" value="Calculate">
+    </form>
+    <div id="planLumpCalc" class="calculator-results"></div>
+    <div style="clear:both"></div>
+    <div class="divider"></div>
+    <p class="footer">Copyright &copy; 2026 Silas Montgomery. All rights reserved.</p>
+</body>
+</html>
+<script>
+document.querySelector('.calculator').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const principal = parseFloat(document.getElementById('principal').value);
+    const interestRate = parseFloat(document.getElementById('interestRate').value) / 100;
+    const payments = parseInt(document.getElementById('payments').value);
+    const months = parseInt(document.getElementById('months').value);
+    const planFee = parseFloat(document.getElementById('planFee').value);
+    const totalPaymentPlanCost = principal + planFee;
+    const paymentAmount = totalPaymentPlanCost / payments;
+
+    var planLumpCalc = document.getElementById('planLumpCalc');
+    var totalInterest = 0;
+    var currentPayment = 0;
+    var planBalance = totalPaymentPlanCost
+    var principalBalance = principal;
+
+    planLumpCalc.innerHTML = `<h2>Payment Plan</h2>`;
+
+    // Make payments and calculate interest
+    while(payments > currentPayment) {
+        currentPayment++;
+        var thisInterest = (principalBalance * (interestRate / 12)) * months;
+        totalInterest += thisInterest;
+        planBalance -= paymentAmount;
+        principalBalance -= paymentAmount;
+        if(document.getElementById('compoundInterest').checked) {
+            principalBalance += thisInterest;
+        }
+        var element = document.createElement('p');
+        element.innerHTML = `Payment ${currentPayment}: $${paymentAmount.toFixed(2)}<br />Remaining Plan Balance: $${planBalance.toFixed(2)}<br />Remaining Principal Balance: $${principalBalance.toFixed(2)}<br />Interest this period: $${thisInterest.toFixed(2)}`;
+        planLumpCalc.appendChild(element);
+    }
+    var totalCostElement = document.createElement('p');
+    totalCostElement.innerHTML = `Total Cost of Payment Plan<br />$${totalPaymentPlanCost.toFixed(2)}`;
+    planLumpCalc.appendChild(totalCostElement);
+    var totalInterestElement = document.createElement('p');
+    totalInterestElement.innerHTML = `Total Interest Earned<br />$${totalInterest.toFixed(2)}`;
+    planLumpCalc.appendChild(totalInterestElement);
+    var netCostElement = document.createElement('p');
+    netCostElement.innerHTML = `Net Profit/Loss of Payment Plan<br />$${(principal + totalInterest - totalPaymentPlanCost).toFixed(2)}`;
+    planLumpCalc.appendChild(netCostElement);
+
+});
+</script>
