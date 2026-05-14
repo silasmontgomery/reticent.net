@@ -43,7 +43,7 @@ h2 {
     margin: 0 0 10px 0;
 }
 .footer {
-    margin-top: 40px;
+    margin-top: 20px;
     font-size: 0.9em;
     color: #9e9e9e;
 }
@@ -109,6 +109,10 @@ form button[type="submit"] .spinner {
 
     /* Smooth infinite rotation */
     animation: spin 1s linear infinite;
+}
+ul {
+    margin: 0 0 0 25px;
+    padding: 0;
 }
 ul.no-style {
     list-style-type: none;

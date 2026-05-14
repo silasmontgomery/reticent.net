@@ -8,17 +8,17 @@ $body = <<<HTML
 </div>
 <div class="column">
     <h2><span class="material-symbols-outlined">construction</span> Tools</h2>
-    <ul class="no-style">
+    <ul>
         <li>
-            <span class="material-symbols-outlined">calculate</span> <a href="/tools/lump_sum_vs_payment_plan">Lump Sum vs. Payment Plan Calculator</a>
+            <a href="/tools/lump_sum_vs_payment_plan">Lump Sum vs. Payment Plan Calculator</a>
         </li>
     </ul>
 </div>
 <div class="column">
     <h2><span class="material-symbols-outlined">shield_question</span> Other Stuff</h2>
-    <ul class="no-style">
-        <li><span class="material-symbols-outlined">commit</span> <a href="https://github.com/silasmontgomery">GitHub</a></li>
-        <li><span class="material-symbols-outlined">book_2</span> <a href="https://old-blog.reticent.net">Old Blog</a></li>
+    <ul>
+        <li><a href="https://github.com/silasmontgomery">GitHub</a></li>
+        <li><a href="https://old-blog.reticent.net">Old Blog</a></li>
     </ul>
 </div>
 <div class="clear"></div>
