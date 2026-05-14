@@ -1,5 +1,5 @@
 <?php
-$title = 'Contact';
+$title = 'Contact Form';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if(!isset($_POST['captcha']) || !is_numeric($_POST['captcha']) || $_POST['captcha'] != ($_SESSION['captcha_number1'] - $_SESSION['captcha_number2'])) {
@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         
         if($name && $email && $message) {
-            mail($email, "New message from contact form", $name . " says:\n\n" . $message);
+            mail($config['contact']['email'], "New message from contact form", "Name: " . $name . "\nEmail: " . $email . "\n\nMessage:\n" . $message);
             $body = <<<HTML
             <div class="page-section">
                 <p>Thank you, <strong>{$name}</strong>, for reaching out! Your message has been submitted. I'll get back to you at <strong>{$email}</strong> as soon as I can.</p>
