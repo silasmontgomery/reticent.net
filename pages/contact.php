@@ -21,7 +21,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         
         if($name && $email && $message) {
-            mail($config['contact']['email'], "New message from contact form", "Name: " . $name . "\nEmail: " . $email . "\n\nMessage:\n" . $message);
+            $headers = "From: " . $config['contact_form']['from_email'] . "\r\n" .
+                       "Reply-To: " . $email . "\r\n" .
+                       "X-Mailer: PHP/" . phpversion();
+            mail($config['contact_form']['to_email'], "New message from contact form", "Name: " . $name . "\nEmail: " . $email . "\n\nMessage:\n" . $message, $headers);
             $body = <<<HTML
             <div class="page-section">
                 <p>Thank you, <strong>{$name}</strong>, for reaching out! Your message has been submitted. I'll get back to you at <strong>{$email}</strong> as soon as I can.</p>
