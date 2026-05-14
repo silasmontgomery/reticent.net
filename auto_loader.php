@@ -1,4 +1,10 @@
 <?php
+// Load environment variables from .env file
+$config = parse_ini_file(__DIR__ . '/.env', true);
+if ($config === false) {
+    die('Error loading configuration file.');
+}
+
 // Get the current URL path
 $current_path = $_SERVER['REQUEST_URI'];
 
