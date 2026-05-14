@@ -72,7 +72,7 @@ h2 {
     display: block;
     margin-bottom: 5px;
 }
-.form-section input[type="text"], .form-section input[type="number"], .form-section select {
+.form-section input[type="text"], .form-section input[type="number"], .form-section input[type="email"], .form-section textarea, .form-section select {
     padding: 8px;
     margin-bottom: 5px;
     border: 1px solid #555;

@@ -27,13 +27,7 @@ if (!empty($path_segments)) {
 }
 $page_file = realpath($path);
 // Check if the file exists and include it, otherwise show a 404 error
-if (file_exists($path)) {
-    // Return file directly if it's not a PHP file (e.g., CSS, JS, images)
-    if(pathinfo($page_file, PATHINFO_EXTENSION) !== 'php') {
-        header('Content-Type: ' . mime_content_type($page_file));
-        readfile($page_file);
-        exit;
-    }
+if (file_exists($page_file)) {
     include $page_file;
 } else {
     http_response_code(404);

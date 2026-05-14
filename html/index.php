@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require_once __DIR__ . '/../auto_loader.php';
 if (!isset($title)) {
     $title = 'Shirking in the shadows';
