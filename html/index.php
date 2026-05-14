@@ -32,7 +32,7 @@ if (!isset($body)) {
     <?php if($page !== 'home.php'): ?>
         <?php include __DIR__ . '/../components/nav-menu.php'; ?>
     <?php endif; ?>
-    <div class="center-content" id="main">
+    <div class="center-content">
         <?php echo $body; ?>
     </div>
     <div class="divider"></div>
