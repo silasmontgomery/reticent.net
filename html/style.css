@@ -146,3 +146,6 @@ ul.no-style {
 .hide {
     display: none;
 }
+.material-symbols-outlined {
+    vertical-align: text-bottom;
+}
