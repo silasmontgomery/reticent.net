@@ -6,7 +6,7 @@ $body = <<<HTML
     <p>Here you'll find a mix of projects, apps, scripts, and other resources that I've put together. You won't find any flashy designs or clickbait here. Just good (possibly silly) content that I find useful and maybe you will too.</p>
     <p>Feel free to explore the site and check out the tools I've created. If you have any questions or suggestions, don't hesitate to <a href="/contact">reach out</a>. Thanks for visiting!</p>
 </div>
-<div class="flex-container top page-section">
+<div class="flex-container grow top page-section">
     <div class="box">
         <div class="box-header">
             <span class="icon material-symbols-outlined">construction</span> Tools
