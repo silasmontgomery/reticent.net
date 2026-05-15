@@ -1,9 +1,8 @@
-<?php $title = 'Lump Sum vs Payment Plan Calculator'; ?>
+<?php $subtitle = 'Lump Sum vs Payment Plan Calculator'; ?>
 <?php $body = <<<HTML
-
 <div class="column">
     <form class="calculator">
-        <h2>Lump Sum vs Payment Plan</h2>
+        <h2><span class="material-symbols-outlined">calculate</span> Lump Sum vs Payment Plan Calculator</h2>
         <p>Use this calculator to see how the interest income on a lump sum investment would offset the cost of a payment plan.</p>
         <div class="form-section">
             <label for="principal">Principal Amount ($):</label>
@@ -14,6 +13,13 @@
             <label for="interestRate">Estimated APY (%):</label>
             <input type="number" id="interestRate" name="interestRate" step="0.1" value="3.1" />
             <div class="note">This is the estimated annual percentage yield if you kept the principal invested.</div>
+        </div>
+        <div class="form-section">
+            <label for="compoundInterest">Interest Compounds Monthly:</label>
+            <select id="compoundInterest" name="compoundInterest">
+                <option value="yes" selected>Yes</option>
+                <option value="no">No</option>
+            </select>
         </div>
         <div class="form-section">
             <label for="payments">Number of Payments:</label>
@@ -33,14 +39,7 @@
         <div class="form-section">
             <label for="planInterestRate">Payment Plan Interest Rate (%):</label>
             <input type="number" id="planInterestRate" name="planInterestRate" value="0.0" step="0.1" />
-            <div class="note">This is the interest rate applied to the payment plan.</div>
-        </div>
-        <div class="form-section">
-            <label for="compoundInterest">Interest Compounds Monthly:</label>
-            <select id="compoundInterest" name="compoundInterest">
-                <option value="yes" selected>Yes</option>
-                <option value="no">No</option>
-            </select>
+            <div class="note">This is the simple interest rate applied to the payment plan.</div>
         </div>
         <button type="submit">
             <span class="text">Calculate</span>

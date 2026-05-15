@@ -1,5 +1,5 @@
 <?php
-$title = 'Contact Form';
+$subtitle = 'drop me a line';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if(!isset($_POST['captcha']) || !is_numeric($_POST['captcha']) || $_POST['captcha'] != ($_SESSION['captcha_number1'] - $_SESSION['captcha_number2'])) {
