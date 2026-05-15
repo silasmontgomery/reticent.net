@@ -21,31 +21,36 @@ if (!isset($body)) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <style>
-        <?php include __DIR__ . '/style.css'; ?>
-    </style>
+    <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 <body>
     <a name="top"></a>
     <div class="center-content ">
-        <div id="top-title">
-            <div class="title"><?php echo $title; ?></div>
-            <p class="subtitle"><i><?php echo $subtitle; ?></i></p>
+        <div id="header">
+            <div id="header-logo">
+                <img src="/logo.png" alt="Logo">
+            </div>
+            <div id="header-title">
+                <div class="title"><?php echo $title; ?></div>
+                <div class="subtitle"><?php echo $subtitle; ?></div>
+            </div>
         </div>
     </div>
     <div class="divider"></div>
     <?php if($page !== 'home.php'): ?>
         <?php include __DIR__ . '/../components/nav-menu.php'; ?>
     <?php endif; ?>
-    <div id="main" class="center-content">
-        <?php echo $body; ?>
+    <div class="center-content">
+        <div id="main">
+            <?php echo $body; ?>
+        </div>
     </div>
     <?php if($page !== 'home.php'): ?>
         <?php include __DIR__ . '/../components/nav-menu.php'; ?>
     <?php endif; ?>
     <div class="divider"></div>
     <div class="center-content">
-        <p class="footer">Copyright &copy; <?php echo date("Y") ?> <?php echo $config['general']['admin_name'] ?? 'Silas Montgomery'; ?>. All rights reserved. <a href="contact.php">Contact Me</a></p>
+        <p id="footer">Copyright &copy; <?php echo date("Y") ?> <?php echo $config['general']['admin_name'] ?? 'Silas Montgomery'; ?>. All rights reserved. <a href="contact.php">Contact Me</a></p>
     </div>
 </body>
 </html>

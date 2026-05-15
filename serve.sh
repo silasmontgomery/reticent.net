@@ -1,3 +1,3 @@
 #!/bin/bash
-cd html
+cd public
 php -S localhost:8000 index.php
